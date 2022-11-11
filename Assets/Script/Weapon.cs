@@ -6,18 +6,22 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public float timer;
+    public float ShootInterval = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+
+          }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        timer += Time.deltaTime;
+        if (Input.GetMouseButton(0) && timer >= ShootInterval)
         {
             Shoot();
+            timer = 0;
         }
     }
 
