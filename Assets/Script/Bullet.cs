@@ -5,26 +5,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 2000f;
+    public float speed = 5000;
     public int damage = 50;
     public Rigidbody2D rb;
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        rb.velocity = transform.up * speed * Time.deltaTime;
+        rb.velocity = transform.up * Time.deltaTime * speed;
     }
 
     
-    void OnTriggerEnter2D (Collider2D hitInfo)
-    {
-        Enemy enemy = hitInfo.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.takeDamage(damage);
-        }
-        Destroy(gameObject);
-    }
+     void OnTriggerEnter2D (Collider2D hitInfo)
+     {
+         Enemy enemy = hitInfo.GetComponent<Enemy>();
+         if (enemy != null)
+         {
+             enemy.takeDamage(damage);
+         }
+         Destroy(gameObject);
+     }
     // Update is called once per frame
     
 }
