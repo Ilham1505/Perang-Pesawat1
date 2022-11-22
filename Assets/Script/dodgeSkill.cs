@@ -11,6 +11,8 @@ public class dodgeSkill : MonoBehaviour
     public float cooldownTime;
 
     public float skillTime;
+    
+    public bool Skill;
 
     void Start()
     {
@@ -37,9 +39,21 @@ public class dodgeSkill : MonoBehaviour
         notCd = true;
     }
 
+    public void skillActive()
+    {
+        Skill = true;
+    }
+
+    public void skillDeactive()
+    {
+        Skill = false;
+    }
+
     void skillUse()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && notCd == true)
+
+        //if (Input.GetKeyDown(KeyCode.Space) && notCd == true)
+        if(Skill)
         {
             notCd = false;
             StartCoroutine(dodge());

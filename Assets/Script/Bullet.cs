@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float speed = 5000;
+    public float speed = 5000;
     public int damage = 50;
     public Rigidbody2D rb;
 
@@ -16,15 +16,15 @@ public class Bullet : MonoBehaviour
     }
 
     
-    // void OnTriggerEnter2D (Collider2D hitInfo)
-    // {
-    //     Enemy enemy = hitInfo.GetComponent<Enemy>();
-    //     if (enemy != null)
-    //     {
-    //         enemy.takeDamage(damage);
-    //     }
-    //     Destroy(gameObject);
-    // }
+     void OnTriggerEnter2D (Collider2D hitInfo)
+     {
+         Enemy enemy = hitInfo.GetComponent<Enemy>();
+         if (enemy != null)
+         {
+             enemy.takeDamage(damage);
+         }
+         Destroy(gameObject);
+     }
     // Update is called once per frame
     
 }
