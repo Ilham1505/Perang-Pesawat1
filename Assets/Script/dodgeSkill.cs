@@ -14,12 +14,7 @@ public class dodgeSkill : MonoBehaviour
     
     public bool Skill;
 
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
 

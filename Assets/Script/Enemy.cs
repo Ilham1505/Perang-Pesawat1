@@ -24,5 +24,11 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    void OnTriggerStay(Collider col)
+    {
+        if(col.gameObject.tag == "Building")
+        {
+            this.GetComponent<EdgeCollider2D>().enabled = false;
+        }
+    }
 }

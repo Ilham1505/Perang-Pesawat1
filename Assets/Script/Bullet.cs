@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     public int damage = 50;
     public Rigidbody2D rb;
 
-    // Start is called before the first frame update
     void Update()
     {
         rb.velocity = transform.up * Time.deltaTime * speed;
@@ -25,6 +24,5 @@ public class Bullet : MonoBehaviour
          }
          Destroy(gameObject);
      }
-    // Update is called once per frame
     
 }
