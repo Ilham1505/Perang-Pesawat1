@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f1babcf27b4504190355a9861cb12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
+  speed: 2000
   damage: 50
   rb: {fileID: 61617971321703187}
 --- !u!114 &693777834954272754
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac22fe8026cf494dba6ba4e7c653e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 2
+  interval: 3
 --- !u!95 &5309135825540197388
 Animator:
   serializedVersion: 4

@@ -8,9 +8,11 @@ public class building : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public healthBar HealthBar;
+    private Animator anim;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         HealthBar.setHealth(maxHealth);
     }
@@ -21,7 +23,8 @@ public class building : MonoBehaviour
         HealthBar.setHealth(currentHealth);
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            anim.Play("exploision");
+            Destroy(gameObject, 1.0f);
         }
     }
 

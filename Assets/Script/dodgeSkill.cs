@@ -9,22 +9,28 @@ public class dodgeSkill : MonoBehaviour
     private bool notCd = true;
 
     public float cooldownTime;
+    public GameObject other;
 
     public float skillTime;
-    
+    private Animator anim;
     public bool Skill;
+    private int speed = 100;
 
-
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Update()
     {
-
         skillUse();
     }
 
     private IEnumerator dodge()
     {
         this.GetComponent<EdgeCollider2D>().enabled = false;
+        anim.Play("dodge");
         yield return new WaitForSecondsRealtime(skillTime);
+        anim.Play("idlestrike");
         this.GetComponent<EdgeCollider2D>().enabled = true;
     }
 

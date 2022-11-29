@@ -8,16 +8,12 @@ public class Bomb : MonoBehaviour
     public float speed = 0;
     public int damage = 50;
     public Rigidbody2D rb;
-    public float dropTime = 10;
+    public float dropTime = 4;
+    private Animator anim;
 
-
-    void Start()
-    {
-
-    }
     void Update()
     {
-        //StartCoroutine(bombDrop());
+        anim = GetComponent<Animator>();
         rb.velocity = transform.up * Time.deltaTime * speed;
     }
 
@@ -28,23 +24,16 @@ public class Bomb : MonoBehaviour
          if (Building != null)
          {
             StartCoroutine(wait());
-            Building.takeDamage(damage);         
+            //Building.takeDamage(damage);
             //Destroy(gameObject);
          }
+        IEnumerator wait()
+        {
+        yield return new WaitForSecondsRealtime(dropTime);
+        Building.takeDamage(damage);
+        anim.Play("exploision");
+        Destroy(gameObject, 1.0f);
+        }
      }
-
-    private IEnumerator bombDrop()
-    {
-        this.GetComponent<EdgeCollider2D>().enabled = false;
-        yield return new WaitForSecondsRealtime(dropTime);
-        this.GetComponent<EdgeCollider2D>().enabled = true;
-    }
-
-    private IEnumerator wait()
-    {
-        yield return new WaitForSecondsRealtime(dropTime);
-        //Building.takeDamage(damage);         
-        Destroy(gameObject);
-    }
     
 }
