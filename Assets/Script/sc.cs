@@ -72,7 +72,6 @@ public class sc : MonoBehaviour
         {
             transform.Rotate(0, 0, -rotateSpeed);
         }
-
         rb.AddForce(transform.up * speed);
     }
 

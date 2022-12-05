@@ -18,19 +18,10 @@ public class Bullet : MonoBehaviour
      void OnTriggerEnter2D (Collider2D hitInfo)
      {
          Enemy enemy = hitInfo.GetComponent<Enemy>();
-         if (enemy != null)
+         if (enemy != null && hitInfo.gameObject.tag == "Player")
          {
-             enemy.takeDamage(damage);
+            enemy.takeDamage(damage);
+            Destroy(gameObject);
          }
-         Destroy(gameObject);
      }
-     
-    void OnTriggerStay(Collider col)
-    {
-        if(col.gameObject.tag == "Building")
-        {
-            this.GetComponent<EdgeCollider2D>().enabled = false;
-        }
-    }
-    
 }

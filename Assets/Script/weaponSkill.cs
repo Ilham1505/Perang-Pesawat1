@@ -30,5 +30,4 @@ public class rocket : MonoBehaviour
             Building.takeDamage(damage);
         }
      }
-    
 }

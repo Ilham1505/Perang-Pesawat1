@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 1000;
     public int currentHealth;
     public healthBar HealthBar;
     private Animator anim;
-    public GameObject other;
 
     void Start()
     {
@@ -22,18 +21,19 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
         HealthBar.setHealth(currentHealth);
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 )
         {
             anim.Play("exploision");
-            Destroy(other);
             Destroy(gameObject,1.0f);
         }
     }
-    void OnTriggerStay(Collider col)
-    {
-        if(col.gameObject.tag == "Building")
-        {
-            this.GetComponent<EdgeCollider2D>().enabled = false;
-        }
-    }
+
+    void OnTriggerEnter2D (Collider2D hitInfo)
+     {
+         if (hitInfo.gameObject.tag == "Wall")
+         {
+            anim.Play("exploision");
+            Destroy(gameObject,1.0f);
+         }
+     }
 }

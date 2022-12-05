@@ -5,16 +5,16 @@ using UnityEngine;
 public class destoryBullet : MonoBehaviour
 {
     public float interval;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         Destroy (gameObject,interval);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void OnTriggerEnter2D (Collider2D hitInfo)
+     {
+         if (hitInfo.gameObject.tag == "Wall")
+         {
+            Destroy(gameObject);
+         }
+     }
 }
