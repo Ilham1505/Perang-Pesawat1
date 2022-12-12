@@ -10,6 +10,8 @@ public class rocket : MonoBehaviour
     public Rigidbody2D rb;
     private Animator anim;
 
+
+
     void Start()
     {
         rb.velocity = transform.up * Time.deltaTime * speed;

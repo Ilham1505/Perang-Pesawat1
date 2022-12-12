@@ -2,6 +2,7 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bomb : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Bomb : MonoBehaviour
     public Rigidbody2D rb;
     public float dropTime = 4;
     private Animator anim;
+
 
     void Update()
     {

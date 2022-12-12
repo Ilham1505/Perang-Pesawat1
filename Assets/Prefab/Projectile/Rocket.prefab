@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac22fe8026cf494dba6ba4e7c653e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 3
+  interval: 1
 --- !u!95 &5309135825540197388
 Animator:
   serializedVersion: 4
